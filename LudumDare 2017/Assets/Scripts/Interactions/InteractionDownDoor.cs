@@ -6,7 +6,8 @@ public class InteractionDownDoor : InteractionGeneric {
 	private Vector3 endMarker;
 	private Vector3 initialPosition;
 	public float speed = 1.0f;
-	private float startTime;
+	public float closeTime = 100.0f;
+	private float actualTime;
 	private float journeyLength;
 	private bool isGoingUp = false;
 	private bool isGoingDown = false;
@@ -21,6 +22,9 @@ public class InteractionDownDoor : InteractionGeneric {
 
 	// Update is called once per frame
 	void Update () {
+		RaycastHit[] hit;
+		bool isPlayer = false;
+		Vector3 dwn = transform.TransformDirection(Vector3.down);
 		if (isGoingUp) 
 		{
 			transform.position = Vector3.MoveTowards (transform.position, endMarker, speed);
@@ -28,6 +32,7 @@ public class InteractionDownDoor : InteractionGeneric {
 			{
 				isGoingUp = false;
 				isDown = false;
+				actualTime = Time.time + closeTime; 
 			}
 		}
 
@@ -40,9 +45,13 @@ public class InteractionDownDoor : InteractionGeneric {
 				isDown = true;
 			}
 		}
-
-		if (Input.GetKeyDown (KeyCode.Q))
-			CloseDoors();
+			
+		hit = Physics.SphereCastAll(initialPosition, 1, transform.forward, 1);
+		for (int i = 0; i < hit.GetLength (0); i++)
+			if (hit [i].transform.tag == "Player")
+				isPlayer = true;
+		if (Time.time >= actualTime && !isDown && !isPlayer)
+			CloseDoors ();
 	}
 
 	public override void Interaction ()
@@ -56,4 +65,5 @@ public class InteractionDownDoor : InteractionGeneric {
 	public void CloseDoors (){
 		isGoingDown = true;
 	}
+		
 }
