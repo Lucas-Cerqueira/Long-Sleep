@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 92769197928606592}
   - component: {fileID: 81089332705711970}
   - component: {fileID: 114975830748007444}
+  - component: {fileID: 114192238176023322}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -56,7 +57,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1116808327555930}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.653, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4894537735560164}
@@ -68,14 +69,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1864634784889746}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.322, y: 2.141, z: 2.538}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0.92687595, z: -0, w: -0.37536785}
+  m_LocalPosition: {x: 3.16, y: -3.277, z: 20.78}
+  m_LocalScale: {x: 1.09, y: 1.09, z: 1.09}
   m_Children:
   - {fileID: 4220118856504148}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -224.094, z: 0}
 --- !u!20 &20312672409319562
 Camera:
   m_ObjectHideFlags: 1
@@ -141,6 +142,17 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1116808327555930}
   m_Enabled: 1
+--- !u!114 &114192238176023322
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1116808327555930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94511d8b860d0224b9018d16a2ded6c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114859140718202000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -152,6 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d73890f0761609248a2b1dbb85cbdd26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hideCursor: 1
   characterMass: 5
   walkSpeed: 5
   runSpeed: 10

@@ -1,17 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InteractionGeneric : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
+	public Text textUI;
+	public string interactionMessage = "GENERIC";
+	public bool isLooking = false;
+
+	void Awake () 
+	{
+		textUI = GameObject.Find ("InteractionMessageText").GetComponent<Text> ();
+		textUI.text = interactionMessage;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	public void ShowInteractionMessage ()
+	{
+
+
+		isLooking = true;
+		textUI.text = interactionMessage;
+		textUI.enabled = true;
 	}
 
 	public virtual void Interaction ()

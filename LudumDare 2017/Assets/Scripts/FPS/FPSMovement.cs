@@ -49,7 +49,7 @@ public class FPSMovement : MonoBehaviour
 		if ((grounded)|| (!grounded && airControl))
 		{
 			targetVelocity = new Vector3 (Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-			targetVelocity = cameraTransform.TransformDirection (targetVelocity);
+			targetVelocity = cameraTransform.TransformDirection (targetVelocity).normalized;
 			targetVelocity *= speed;
 
 			velocityChange = targetVelocity - body.velocity;
