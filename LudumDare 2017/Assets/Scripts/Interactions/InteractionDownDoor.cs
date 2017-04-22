@@ -16,6 +16,8 @@ public class InteractionDownDoor : InteractionGeneric {
 
 	// Use this for initialization
 	void Start () {
+		interactionMessage = "Press \"E\" to open the door";
+
 		initialPosition = transform.position;
 		endMarker = transform.GetChild (0).transform.position;
 	}

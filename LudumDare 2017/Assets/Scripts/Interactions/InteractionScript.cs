@@ -30,5 +30,7 @@ public class InteractionScript : InteractionGeneric {
 			else
 				textUI.enabled = false;
 		}
+		else
+			textUI.enabled = false;
 	}
 }

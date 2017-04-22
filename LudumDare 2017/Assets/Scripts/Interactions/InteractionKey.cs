@@ -7,7 +7,7 @@ public class InteractionKey : InteractionGeneric {
 
 	// Use this for initialization
 	void Start () {
-		
+		interactionMessage = "Press \"E\" to pick it up";
 	}
 	
 	// Update is called once per frame
