@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class FPSMovement : MonoBehaviour
 {
+	public bool hideCursor = true;
     public float characterMass = 5;
     public float walkSpeed = 5;
     public float runSpeed = 10;
@@ -26,6 +27,7 @@ public class FPSMovement : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
+		Cursor.visible = !hideCursor;
 		cameraTransform = Camera.main.transform;
 		body = GetComponent<Rigidbody> ();
 		body.freezeRotation = true;
