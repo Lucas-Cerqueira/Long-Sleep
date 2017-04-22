@@ -22,7 +22,7 @@ public class InteractionDoor : InteractionGeneric {
 			for (int i = 0; i < transform.childCount; i++) {
 				transform.GetChild (i).GetComponent<OpenDoor> ().OpenDoors ();
 			}
-			transform.GetComponent<Collider> ().enabled = false;
+			//transform.GetComponent<Collider> ().enabled = false;
 		}
 	}
 

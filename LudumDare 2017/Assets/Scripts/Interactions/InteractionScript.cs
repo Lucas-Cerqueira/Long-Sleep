@@ -14,7 +14,7 @@ public class InteractionScript : MonoBehaviour {
 		Vector3 fwd = transform.TransformDirection(Vector3.forward);
 		RaycastHit hit;
 
-		if (Physics.Raycast (transform.position, fwd, out hit, 10.0f))
+		if (Physics.Raycast (transform.position, fwd, out hit, 10.0f, Physics.AllLayers, QueryTriggerInteraction.Collide))
 		{
 			if (hit.transform.tag == "Object")
 			{
