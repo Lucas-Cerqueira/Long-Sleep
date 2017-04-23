@@ -24,7 +24,7 @@ public class LimitTime : MonoBehaviour {
 		if (remainingTime >= 0)
 			countdownText.SetText (string.Format ("{0:#00}:{1:00}", Mathf.Floor (remainingTime/60), Mathf.Floor (remainingTime%60)));
 
-		if (Mathf.Floor (remainingTime%60) <= 0)
+		if (Mathf.Floor (remainingTime/60) == 0 && Mathf.Floor (remainingTime%60) <= 0)
 			print ("Acabou o tempo");
 	}
 

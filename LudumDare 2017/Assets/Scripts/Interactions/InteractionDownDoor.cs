@@ -25,6 +25,11 @@ public class InteractionDownDoor : InteractionGeneric {
 
 	// Update is called once per frame
 	void Update () {
+		if (isLocked)
+			interactionMessage = "This door is locked";
+		else
+			interactionMessage = "Press \"E\" to open";
+
 		RaycastHit[] hit;
 		bool isPlayer = false;
 		Vector3 dwn = transform.TransformDirection(Vector3.down);
