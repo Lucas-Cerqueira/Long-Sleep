@@ -1,18 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class LimitTime : MonoBehaviour {
 	
 	public float limitTime = 600.0f;
 	private float targetTime;
 
-	private Text countdownText;
+	private TMPro.TMP_Text countdownText;
 
 	void Start () 
 	{
-		countdownText = GetComponent<Text> ();
+		countdownText = GetComponent<TMP_Text> ();
 
 		StartCountdown ();
 	}
@@ -22,7 +22,7 @@ public class LimitTime : MonoBehaviour {
 	{
 		float remainingTime = targetTime - Time.time;
 		if (remainingTime >= 0)
-			countdownText.text = string.Format ("{0:#00}:{1:00}", Mathf.Floor (remainingTime/60), Mathf.Floor (remainingTime%60));
+			countdownText.SetText (string.Format ("{0:#00}:{1:00}", Mathf.Floor (remainingTime/60), Mathf.Floor (remainingTime%60)));
 
 		if (Mathf.Floor (remainingTime%60) <= 0)
 			print ("Acabou o tempo");

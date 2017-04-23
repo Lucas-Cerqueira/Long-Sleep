@@ -7,16 +7,17 @@ public class InteractionDownDoor : InteractionGeneric {
 	private Vector3 initialPosition;
 	public float speed = 1.0f;
 	public float closeTime = 100.0f;
+	public string situation = "";
 	private float actualTime;
 	private float journeyLength;
 	private bool isGoingUp = false;
 	private bool isGoingDown = false;
 	private bool isDown = true;
 
+	private bool triggeredDialogue = false;
 
 	// Use this for initialization
 	void Start () {
-		interactionMessage = "Press \"E\" to open the door";
 
 		initialPosition = transform.position;
 		endMarker = transform.GetChild (0).transform.position;
@@ -62,6 +63,12 @@ public class InteractionDownDoor : InteractionGeneric {
 			isGoingUp = true;
 		else
 			isGoingDown = true;
+
+		if (!triggeredDialogue && !situation.Equals ("")) 
+		{
+			GameObject.Find ("Dialogue").GetComponent<DialogueHandler> ().SetDialogueSituation (situation);
+			triggeredDialogue = true;
+		}
 	}
 
 	public void CloseDoors (){

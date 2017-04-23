@@ -2,25 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class InteractionGeneric : MonoBehaviour {
 
-	public Text textUI;
+	[HideInInspector] public TMPro.TMP_Text textUI;
 	public string interactionMessage = "GENERIC";
-	public bool isLooking = false;
 
 	void Awake () 
 	{
-		textUI = GameObject.Find ("InteractionMessageText").GetComponent<Text> ();
-		textUI.text = interactionMessage;
+		textUI = GameObject.Find ("InteractionMessageText").GetComponent<TMPro.TMP_Text> ();
+		textUI.SetText(interactionMessage);
 	}
 
 	public void ShowInteractionMessage ()
 	{
-
-
-		isLooking = true;
-		textUI.text = interactionMessage;
+		textUI.SetText(interactionMessage);
 		textUI.enabled = true;
 	}
 

@@ -8,7 +8,7 @@ public class InteractionDoor : InteractionGeneric {
 
 	// Use this for initialization
 	void Start () {
-		interactionMessage = "Press \"E\" to open the door";
+		interactionMessage = "Press \"E\" to open the doors";
 	}
 	
 	// Update is called once per frame
