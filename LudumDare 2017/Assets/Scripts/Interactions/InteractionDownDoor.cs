@@ -109,6 +109,11 @@ public class InteractionDownDoor : InteractionGeneric {
 			print ("Deu play");
 		}
 	}
+
+	public void setInitialPosition()
+	{
+		initialPosition = transform.position;
+	}
 		
 		
 }
