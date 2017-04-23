@@ -23,6 +23,7 @@ public class InteractionFuseKey : InteractionGeneric {
 			print ("Unlocked_Showing");
 			transform.GetChild (0).GetComponent<MeshRenderer> ().enabled = true;
 			gameObject.tag = "Untagged";
+			GameObject.Find("Dialogue").GetComponent<DialogueHandler>().SetDialogueSituation("afterFixingFuse");
 		}
 	}
 
