@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 81089332705711970}
   - component: {fileID: 114975830748007444}
   - component: {fileID: 114192238176023322}
+  - component: {fileID: 114280096112849772}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -43,9 +44,10 @@ GameObject:
   - component: {fileID: 136639440372468632}
   - component: {fileID: 54885285120593670}
   - component: {fileID: 114859140718202000}
+  - component: {fileID: 82580213293647746}
   m_Layer: 0
   m_Name: FPSPlayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -69,14 +71,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1864634784889746}
-  m_LocalRotation: {x: -0, y: -0.92687595, z: -0, w: -0.37536785}
-  m_LocalPosition: {x: 3.16, y: -3.277, z: 20.78}
-  m_LocalScale: {x: 1.09, y: 1.09, z: 1.09}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4220118856504148}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -224.094, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &20312672409319562
 Camera:
   m_ObjectHideFlags: 1
@@ -135,6 +137,86 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1116808327555930}
   m_Enabled: 1
+--- !u!82 &82580213293647746
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1864634784889746}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: c53dcab76cbb0ea4586442e56aa7ed42, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!92 &92769197928606592
 Behaviour:
   m_ObjectHideFlags: 1
@@ -153,6 +235,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94511d8b860d0224b9018d16a2ded6c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textUI: {fileID: 0}
+  interactionMessage: GENERIC
+  isLocked: 0
+--- !u!114 &114280096112849772
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1116808327555930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94511d8b860d0224b9018d16a2ded6c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textUI: {fileID: 0}
+  interactionMessage: GENERIC
+  isLocked: 0
 --- !u!114 &114859140718202000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -172,6 +271,7 @@ MonoBehaviour:
   canJump: 1
   jumpHeight: 200
   airControl: 1
+  footstepSound: {fileID: 8300000, guid: 3b71076c2e1e05542b8ddc0b72a36bbf, type: 3}
 --- !u!114 &114975830748007444
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -185,6 +285,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sensibilityX: 2
   sensibilityY: 2
+  horizontalClamp: 720
   verticalClamp: 60
 --- !u!124 &124584982381605702
 Behaviour:

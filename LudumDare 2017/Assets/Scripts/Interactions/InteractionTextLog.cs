@@ -5,7 +5,10 @@ using UnityEngine.UI;
 
 public class InteractionTextLog : InteractionGeneric {
 
+	public string logType;
+
 	private TextLogUIHandler textLogUIHandler;
+	private bool triggeredDialogue = false;
 
 
 	// Use this for initialization
@@ -18,6 +21,6 @@ public class InteractionTextLog : InteractionGeneric {
 
 	public override void Interaction ()
 	{
-		textLogUIHandler.Enable ();
+		textLogUIHandler.Enable (logType, TextLogList.dialoguesList[logType]);
 	}
 }

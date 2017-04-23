@@ -4,6 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(CapsuleCollider))]
+[RequireComponent(typeof(AudioSource))]
 
 public class FPSMovement : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class FPSMovement : MonoBehaviour
 	public bool canJump = true;
 	public float jumpHeight = 2f;
 	public bool airControl = true;
+	public AudioClip footstepSound;
 
     private Vector3 targetVelocity;
 	private Vector3 velocityChange;
@@ -23,6 +25,7 @@ public class FPSMovement : MonoBehaviour
 	private CapsuleCollider collider;
 	private float speed = 5;
     private int layerMask = 1 << 8;
+	private AudioSource audioSource;
 
     // Use this for initialization
     void Awake()
@@ -33,6 +36,7 @@ public class FPSMovement : MonoBehaviour
 		body.freezeRotation = true;
 
 		collider = GetComponent<CapsuleCollider>();
+		audioSource = GetComponent<AudioSource> ();
     }
 
     // Update is called once per frame
@@ -44,7 +48,7 @@ public class FPSMovement : MonoBehaviour
 			speed = walkSpeed;
 
 		RaycastHit hitinfo;
-		bool grounded = Physics.Raycast (transform.position, Vector3.down, collider.height/2f + 0.1f);
+		bool grounded = Physics.Raycast (transform.position, Vector3.down, collider.height/2f + 0.2f);
 
 		if ((grounded)|| (!grounded && airControl))
 		{
@@ -72,6 +76,19 @@ public class FPSMovement : MonoBehaviour
 		else 
 		{
 			body.AddForce (Physics.gravity * body.mass);
-		}        
+		}
+
+		// is Walking
+		if (grounded && body.velocity.magnitude > 0.1f) 
+		{
+			if (!audioSource.isPlaying && footstepSound) 
+			{
+				audioSource.clip = footstepSound;
+				audioSource.pitch = speed / walkSpeed;
+				audioSource.Play ();
+			}
+		} 
+		else if (audioSource.clip.Equals (footstepSound))
+			audioSource.Stop ();
     }
 }
