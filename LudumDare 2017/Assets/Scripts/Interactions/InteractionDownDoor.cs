@@ -59,20 +59,23 @@ public class InteractionDownDoor : InteractionGeneric {
 
 	public override void Interaction ()
 	{
-		if (isDown)
-			isGoingUp = true;
-		else
-			isGoingDown = true;
+        if (!triggeredDialogue && !situation.Equals(""))
+        {
+            GameObject.Find("Dialogue").GetComponent<DialogueHandler>().SetDialogueSituation(situation);
+            triggeredDialogue = true;
+        }
 
-		if (!triggeredDialogue && !situation.Equals ("")) 
-		{
-			GameObject.Find ("Dialogue").GetComponent<DialogueHandler> ().SetDialogueSituation (situation);
-			triggeredDialogue = true;
+		if (!isLocked) {
+			if (isDown)
+				isGoingUp = true;
+			else
+				isGoingDown = true;
 		}
 	}
 
 	public void CloseDoors (){
 		isGoingDown = true;
 	}
+		
 		
 }

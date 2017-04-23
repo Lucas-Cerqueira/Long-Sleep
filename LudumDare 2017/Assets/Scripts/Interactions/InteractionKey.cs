@@ -17,8 +17,11 @@ public class InteractionKey : InteractionGeneric {
 
 	public override void Interaction ()
 	{
-		keyPointer.GetComponent<InteractionDoor> ().Unlock ();
-		print ("Unlocked");
-		gameObject.SetActive (false);
+		if (!isLocked) {
+			keyPointer.GetComponent<InteractionGeneric> ().Unlock ();
+			print ("Unlocked");
+			gameObject.SetActive (false);
+		}
 	}
+		
 }

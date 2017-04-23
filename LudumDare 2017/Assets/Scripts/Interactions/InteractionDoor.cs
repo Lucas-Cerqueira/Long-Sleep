@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class InteractionDoor : InteractionGeneric {
-	public bool isLocked = true;
 
 
 	// Use this for initialization
@@ -25,9 +24,5 @@ public class InteractionDoor : InteractionGeneric {
 			//transform.GetComponent<Collider> ().enabled = false;
 		}
 	}
-
-	public void Unlock ()
-	{
-		isLocked = false;
-	}
+		
 }

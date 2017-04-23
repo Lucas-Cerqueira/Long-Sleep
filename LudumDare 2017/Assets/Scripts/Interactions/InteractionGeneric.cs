@@ -9,6 +9,8 @@ public class InteractionGeneric : MonoBehaviour {
 	[HideInInspector] public TMPro.TMP_Text textUI;
 	public string interactionMessage = "GENERIC";
 
+	public bool isLocked = false;
+
 	void Awake () 
 	{
 		textUI = GameObject.Find ("InteractionMessageText").GetComponent<TMPro.TMP_Text> ();
@@ -24,5 +26,10 @@ public class InteractionGeneric : MonoBehaviour {
 	public virtual void Interaction ()
 	{
 		print ("Não era pra isso aparecer");
+	}
+
+	public virtual void Unlock ()
+	{
+		isLocked = false;
 	}
 }
