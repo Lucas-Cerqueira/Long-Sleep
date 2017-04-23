@@ -106,7 +106,7 @@ public class InteractionDownDoor : InteractionGeneric {
 		{
 			audioSource.clip = closeSound;
 			audioSource.Play ();
-			print ("Deu play");
+//			print ("Deu play");
 		}
 	}
 
