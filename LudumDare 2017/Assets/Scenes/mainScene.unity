@@ -9392,7 +9392,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1218533069}
   m_LocalRotation: {x: -0, y: -0.000000052154064, z: -0.7021623, w: 0.71201694}
-  m_LocalPosition: {x: -0.911, y: 0.069, z: 0.137}
+  m_LocalPosition: {x: -0.882, y: 0.07, z: 0.137}
   m_LocalScale: {x: 0.5598831, y: 0.3784178, z: 0.559918}
   m_Children:
   - {fileID: 1935056929}
@@ -9466,7 +9466,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textUI: {fileID: 0}
   interactionMessage: GENERIC
-  isLocked: 1
+  isLocked: 0
   openSound: {fileID: 8300000, guid: 5573daab6735bee488f26ce961356827, type: 3}
   closeSound: {fileID: 8300000, guid: 55f82cd9c11dd6c4a9a9f58d0700ff07, type: 3}
   speed: 0.1
@@ -10419,7 +10419,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1380975860}
   m_LocalRotation: {x: -0, y: -0.000000052154064, z: -0.7021623, w: 0.71201694}
-  m_LocalPosition: {x: 0.715, y: -0.003, z: 0.11}
+  m_LocalPosition: {x: 0.753, y: -0.002, z: 0.11}
   m_LocalScale: {x: 0.59347606, y: 0.40112284, z: 0.593513}
   m_Children:
   - {fileID: 1779664425}
