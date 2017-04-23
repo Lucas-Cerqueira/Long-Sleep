@@ -6,8 +6,9 @@ public class InteractionFuseKey : InteractionGeneric {
 	public GameObject keyPointer;
 
 	// Use this for initialization
-	void Start () {
-		interactionMessage = "Press \"E\" to pick it up";
+	void Start () 
+	{
+		interactionMessage = "You need a fuse";
 	}
 
 	// Update is called once per frame
@@ -23,6 +24,12 @@ public class InteractionFuseKey : InteractionGeneric {
 			transform.GetChild (0).GetComponent<MeshRenderer> ().enabled = true;
 			gameObject.tag = "Untagged";
 		}
+	}
+
+	public override void Unlock ()
+	{
+		base.Unlock ();
+		interactionMessage = "Press \"E\" to place the fuse";
 	}
 
 }
