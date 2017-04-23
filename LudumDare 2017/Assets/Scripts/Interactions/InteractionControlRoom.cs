@@ -7,7 +7,7 @@ public class InteractionControlRoom : InteractionGeneric {
 
 	// Use this for initialization
 	void Start () {
-		interactionMessage = "Press \"E\" to pick it up";
+		interactionMessage = "Press \"E\" to interact";
 	}
 
 	// Update is called once per frame
@@ -17,7 +17,9 @@ public class InteractionControlRoom : InteractionGeneric {
 
 	public override void Interaction ()
 	{
-		if (!isLocked) {
+		if (!isLocked) 
+		{
+			GameObject.Find("Dialogue").GetComponent<DialogueHandler>().SetDialogueSituation("afterOpeningEscapePodRoom");
 			keyPointer.GetComponent<InteractionGeneric> ().Unlock ();
 			print ("Unlocked");
 			gameObject.tag = "Untagged";

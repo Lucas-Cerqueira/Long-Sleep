@@ -38,10 +38,10 @@ public class InteractionEscapePod : InteractionGeneric {
 			if (elapsedTime < leavingTime) 
 			{
 				elapsedTime += Time.deltaTime;
-				transform.Translate (-transform.forward * leavingSpeed * Time.deltaTime);
+				transform.Translate (transform.right * leavingSpeed * Time.deltaTime);
 			}
 			else
-				transform.Translate (-transform.forward * finalSpeed * Time.deltaTime);
+				transform.Translate (transform.right * finalSpeed * Time.deltaTime);
 		}
 			
 	}
@@ -60,8 +60,17 @@ public class InteractionEscapePod : InteractionGeneric {
 
 		player.transform.SetParent (this.transform);
 
-		playerInside = true;
+		GameObject.Find ("EscapeDoor").GetComponent<OpenEscapeDoor> ().Open ();
+		GameObject.Find ("Escape_Pod1_Window").GetComponent<ClosePodWindow> ().Close ();
+
+		GameObject.Find("Dialogue").GetComponent<DialogueHandler>().SetDialogueSituation("insideEscapePod");
+
 		elapsedTime = 0;
+	}
+
+	public void SetPlayerInside (bool state)
+	{
+		playerInside = state;
 	}
 
 

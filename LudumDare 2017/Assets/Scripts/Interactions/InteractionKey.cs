@@ -17,10 +17,15 @@ public class InteractionKey : InteractionGeneric {
 
 	public override void Interaction ()
 	{
-		if (!isLocked) {
+		if (!isLocked) 
+		{
+			if (keyPointer.name.Equals ("Control_Door"))
+				GameObject.Find("Dialogue").GetComponent<DialogueHandler>().SetDialogueSituation("afterPickingCard");
+			
 			keyPointer.GetComponent<InteractionGeneric> ().Unlock ();
 			print ("Unlocked");
 			gameObject.SetActive (false);
+
 		}
 	}
 		
