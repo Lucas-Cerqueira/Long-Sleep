@@ -8,8 +8,8 @@ public class OpenDoor : MonoBehaviour {
 	public float speed = 1.0f;
 	private float startTime;
 	private float journeyLength;
-	private bool isOpening = false;
-	private bool isClosing = false;
+	public bool isOpening = false;
+	public bool isClosing = false;
 
 	// Use this for initialization
 	void Start () 
@@ -32,14 +32,15 @@ public class OpenDoor : MonoBehaviour {
 		if (isClosing)
 		{
 			transform.position = Vector3.MoveTowards (transform.position, initialPosition, speed);
-			if (Vector3.Distance(transform.position, initialPosition) < 0.005f) 
+			if (Vector3.Distance(transform.position, initialPosition) < 0.00005f) 
 			{
 				isClosing = false;
+				print ("closed");
 			}
 		}
 
-		if (Input.GetKeyDown (KeyCode.Q))
-			CloseDoors();
+//		if (Input.GetKeyDown (KeyCode.Q))
+//			CloseDoors();
 	}
 
 	public void OpenDoors()
@@ -50,6 +51,17 @@ public class OpenDoor : MonoBehaviour {
 	public void CloseDoors()
 	{
 		isClosing = true;
+	}
+
+	public Vector3 getInitialPosition ()
+	{
+		return initialPosition;
+	}
+
+	public void setInitialPosition ()
+	{
+		endMarker = transform.GetChild (0).transform.position;
+		initialPosition = transform.position;
 	}
 
 }
