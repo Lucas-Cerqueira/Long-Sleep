@@ -11,11 +11,11 @@ public class InteractionElevator : InteractionGeneric {
 	private bool isGoingUp = false;
 	private bool isGoingDown = false;
 	public bool isDown = true;
-
+	public GameObject elevator;
 
 	// Use this for initialization
 	void Start () {
-		initialPosition = transform.position;
+		initialPosition = elevator.transform.position;
 		endMarker = transform.GetChild (0).transform.position;
 	}
 	
@@ -23,20 +23,20 @@ public class InteractionElevator : InteractionGeneric {
 	void Update () {
 		if (isGoingUp) 
 		{
-			Vector3 objectPosition = Vector3.MoveTowards (transform.position, endMarker, speed);
-			GetComponent<Rigidbody> ().MovePosition (objectPosition);
-			if (Vector3.Distance(transform.position,endMarker) < 0.005f) 
+			Vector3 objectPosition = Vector3.MoveTowards (elevator.transform.position, endMarker, speed);
+			elevator.GetComponent<Rigidbody> ().MovePosition (objectPosition);
+			if (Vector3.Distance(elevator.transform.position,endMarker) < 0.005f) 
 			{
 				isGoingUp = false;
-				isDown = false;
+				//isDown = false;
 			}
 		}
 
 		if (isGoingDown)
 		{
-			Vector3 objectPosition = Vector3.MoveTowards (transform.position, initialPosition, speed);
-			GetComponent<Rigidbody> ().MovePosition (objectPosition);
-			if (Vector3.Distance(transform.position, initialPosition) < 0.005f) 
+			Vector3 objectPosition = Vector3.MoveTowards (elevator.transform.position, initialPosition, speed);
+			elevator.GetComponent<Rigidbody> ().MovePosition (objectPosition);
+			if (Vector3.Distance(elevator.transform.position, initialPosition) < 0.005f) 
 			{
 				isGoingDown = false;
 				isDown = true;
@@ -47,9 +47,12 @@ public class InteractionElevator : InteractionGeneric {
 
 	public override void Interaction ()
 	{
-		if (isDown)
-			isGoingUp = true;
-		else
-			isGoingDown = true;
+		if (!isLocked) {
+			if (isDown)
+				isGoingUp = true;
+			else
+				isGoingDown = true;
+		}
 	}
+		
 }

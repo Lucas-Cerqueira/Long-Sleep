@@ -8,6 +8,7 @@ public class InteractionGeneric : MonoBehaviour {
 	public Text textUI;
 	public string interactionMessage = "GENERIC";
 	public bool isLooking = false;
+	public bool isLocked = false;
 
 	void Awake () 
 	{
@@ -26,6 +27,12 @@ public class InteractionGeneric : MonoBehaviour {
 
 	public virtual void Interaction ()
 	{
+		print ("Não era pra isso aparecer");
+	}
+
+	public virtual void Unlock()
+	{
+		isLocked = false;
 		print ("Não era pra isso aparecer");
 	}
 }
