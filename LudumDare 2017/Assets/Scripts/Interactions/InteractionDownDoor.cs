@@ -114,6 +114,10 @@ public class InteractionDownDoor : InteractionGeneric {
 	{
 		initialPosition = transform.position;
 	}
-		
+
+	public Vector3 getInitialPosition()
+	{
+		return initialPosition;
+	}
 		
 }

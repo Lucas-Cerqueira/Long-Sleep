@@ -19,6 +19,7 @@ public class InteractionElevator : InteractionGeneric {
 	public bool dwnLockLeft = false;
 	private bool realLockRight = false;
 	private bool realLockLeft = false;
+	private bool isWaiting = false;
 
 	// Use this for initialization
 	void Start () {
@@ -37,13 +38,13 @@ public class InteractionElevator : InteractionGeneric {
 			{
 				isGoingUp = false;
 				lockDoors = false;
+				isDown = false;
 				elevator.transform.GetChild (0).GetComponent<InteractionDownDoor> ().setInitialPosition ();
 				elevator.transform.GetChild (1).GetComponent<InteractionDownDoor> ().setInitialPosition ();
-//				realLockLeft = upLockLeft;
-//				realLockRight = upLockRight;
-//				realLockRight = lockRight;
-//				realLockLeft = lockLeft;
-				//isDown = false;
+				realLockLeft = upLockLeft;
+				realLockRight = upLockRight;
+				elevator.transform.GetChild (0).GetComponent<InteractionGeneric> ().isLocked = realLockLeft;
+				elevator.transform.GetChild (1).GetComponent<InteractionGeneric> ().isLocked = realLockRight;
 			}
 		}
 
@@ -57,6 +58,12 @@ public class InteractionElevator : InteractionGeneric {
 				lockDoors = false;
 				isGoingDown = false;
 				isDown = true;
+				elevator.transform.GetChild (0).GetComponent<InteractionDownDoor> ().setInitialPosition ();
+				elevator.transform.GetChild (1).GetComponent<InteractionDownDoor> ().setInitialPosition ();
+				realLockLeft = dwnLockLeft;
+				realLockRight = dwnLockRight;
+				elevator.transform.GetChild (0).GetComponent<InteractionGeneric> ().isLocked = realLockLeft;
+				elevator.transform.GetChild (1).GetComponent<InteractionGeneric> ().isLocked = realLockRight;
 			}
 		}
 
@@ -64,17 +71,9 @@ public class InteractionElevator : InteractionGeneric {
 			InteractionGeneric[] locking = elevator.GetComponentsInChildren<InteractionGeneric> ();
 			for (int i = 0; i < locking.GetLength (0); i++)
 				locking [i].isLocked = true;
-//		}
-		} else if(isGoingUp || isGoingDown) {
-			if (Vector3.Distance (elevator.transform.position, initialPosition) < 2) {
-				realLockLeft = upLockLeft;
-				realLockRight = upLockRight;
-			} else {
-				realLockLeft = dwnLockLeft;
-				realLockRight = dwnLockRight;
-			}
 		}
 
+		if (isWaiting) Interaction();
 	}
 
 	public override void Interaction ()
@@ -82,6 +81,17 @@ public class InteractionElevator : InteractionGeneric {
 		if (!isLocked) {
 			elevator.transform.GetChild (0).GetComponent<InteractionDownDoor> ().CloseDoors ();
 			elevator.transform.GetChild (1).GetComponent<InteractionDownDoor> ().CloseDoors ();
+			if (Vector3.Distance (elevator.transform.GetChild (0).GetComponent<InteractionDownDoor> ().transform.position,
+				       elevator.transform.GetChild (0).GetComponent<InteractionDownDoor> ().getInitialPosition ()) >0.1f) {
+				isWaiting = true;
+				return;
+			}
+			if (Vector3.Distance (elevator.transform.GetChild (1).GetComponent<InteractionDownDoor> ().transform.position,
+				       elevator.transform.GetChild (1).GetComponent<InteractionDownDoor> ().getInitialPosition ()) > 0.1f) {
+				isWaiting = true;
+				return;
+			}
+			isWaiting = false;
 			if (isDown)
 				isGoingUp = true;
 			else
