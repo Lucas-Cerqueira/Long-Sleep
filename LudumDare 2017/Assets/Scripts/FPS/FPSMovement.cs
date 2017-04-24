@@ -70,6 +70,7 @@ public class FPSMovement : MonoBehaviour
 			velocityChange.y = 0;
 
 			body.AddForce (velocityChange, ForceMode.VelocityChange);
+			body.AddForce (-transform.up * 2);
 		}
 
 		if (grounded && canJump) 

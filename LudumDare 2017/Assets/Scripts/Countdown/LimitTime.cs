@@ -43,6 +43,10 @@ public class LimitTime : MonoBehaviour {
 		SceneManager.LoadScene (gameOverSceneName);
 	}
 
+	public float getTargetTime()
+	{
+		return targetTime;
+	}
 
 	public void RestartCountdown()
 	{
