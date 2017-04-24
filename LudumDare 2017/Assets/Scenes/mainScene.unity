@@ -4348,6 +4348,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueSituation: atCaptain
+  procDuration: 1
+  waitForActivating: 0
+  waitTimeActivating: 1
 --- !u!65 &330493155
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10993,6 +10996,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueSituation: atCoffee
+  procDuration: 1
+  waitForActivating: 0
+  waitTimeActivating: 1
 --- !u!65 &755637680
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17977,6 +17983,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueSituation: atLounge
+  procDuration: 1
+  waitForActivating: 0
+  waitTimeActivating: 1
 --- !u!65 &1362118373
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23157,13 +23166,13 @@ Transform:
   m_PrefabParentObject: {fileID: 400362, guid: 5d73c31ac6c07e64c8c49f142112c377, type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1765864970}
-  m_LocalRotation: {x: -0.70649546, y: -0.029396374, z: -0.02939637, w: 0.70649546}
-  m_LocalPosition: {x: 5.922, y: -0.344, z: 39.544}
+  m_LocalRotation: {x: -0.37889716, y: -0.5970234, z: -0.5970234, w: 0.37889716}
+  m_LocalPosition: {x: 10.54, y: -10.48, z: -29.4}
   m_LocalScale: {x: 0.18557, y: 0.27378, z: 0.01017}
   m_Children: []
   m_Father: {fileID: 566694475}
   m_RootOrder: 204
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -115.198006}
 --- !u!65 &1765864972
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24977,6 +24986,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueSituation: atBasement
+  procDuration: 1
+  waitForActivating: 0
+  waitTimeActivating: 1
 --- !u!65 &1950639873
 BoxCollider:
   m_ObjectHideFlags: 0
