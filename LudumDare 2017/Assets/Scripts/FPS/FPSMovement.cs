@@ -46,7 +46,7 @@ public class FPSMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
 		if (Input.GetKey (KeyCode.LeftShift))
 			speed = runSpeed;

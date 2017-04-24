@@ -20,7 +20,8 @@ public class InteractionControlRoom : InteractionGeneric {
 		if (!isLocked) 
 		{
 			GameObject.Find("Dialogue").GetComponent<DialogueHandler>().SetDialogueSituation("afterOpeningEscapePodRoom");
-			keyPointer.GetComponent<InteractionGeneric> ().Unlock ();
+			//keyPointer.GetComponent<InteractionGeneric> ().Unlock ();
+			keyPointer.GetComponent<InteractionElevator> ().upLockRight = false;
 			print ("Unlocked");
 			gameObject.tag = "Untagged";
 		}
