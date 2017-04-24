@@ -30,8 +30,10 @@ public class TextLogUIHandler : MonoBehaviour {
 		activeLog = situation;
 
 		GameObject.Find ("Timer").GetComponent<LimitTime> ().StopCountdown ();
-		//GameObject.Find ("FPSPlayer").GetComponent<FPSMovement> ().enabled = false;
-		GameObject.Find ("FPSPlayer").GetComponent<RigidbodyFirstPersonController> ().enabled = false;
+		GameObject.Find ("FPSPlayer").GetComponent<FPSMovement> ().enabled = false;
+		GameObject.Find ("FPSPlayer").transform.GetChild(0).GetComponent<InteractionScript> ().isLooking = false;
+
+//		GameObject.Find ("FPSPlayer").GetComponent<RigidbodyFirstPersonController> ().enabled = false;
 	}
 
 	public void Disable (string gameObjectName)
@@ -43,8 +45,10 @@ public class TextLogUIHandler : MonoBehaviour {
 		GameObject.Find("Dialogue").GetComponent<DialogueHandler>().SetDialogueSituation(activeLog);
 		GameObject.Find ("Timer").GetComponent<LimitTime> ().StartCountdown ();
 
-		//GameObject.Find ("FPSPlayer").GetComponent<FPSMovement> ().enabled = true;
-		GameObject.Find ("FPSPlayer").GetComponent<RigidbodyFirstPersonController> ().enabled = true;
+		GameObject.Find ("FPSPlayer").GetComponent<FPSMovement> ().enabled = true;
+		StartCoroutine (WaitForEnable (0.03f));
+//		GameObject.Find ("FPSPlayer").transform.GetChild(0).GetComponent<InteractionScript> ().isLooking = true;
+//		GameObject.Find ("FPSPlayer").GetComponent<RigidbodyFirstPersonController> ().enabled = true;
 
 	}
 
@@ -54,4 +58,10 @@ public class TextLogUIHandler : MonoBehaviour {
 			Disable (activeGameObjectName);
 			
 	}
+
+	IEnumerator WaitForEnable(float duration)
+	{
+		yield return new WaitForSeconds(duration);   //Wait
+		GameObject.Find ("FPSPlayer").transform.GetChild(0).GetComponent<InteractionScript> ().isLooking = true;
+	} 
 }

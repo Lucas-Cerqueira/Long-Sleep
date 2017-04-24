@@ -8,6 +8,9 @@ public class DialogueTrigger : MonoBehaviour {
 	public float procDuration = 2.0f;
 	public bool waitForActivating = false;
 	public float waitTimeActivating = 2.0f;
+	public GameObject lookingAt;
+	public GameObject player;
+	public float angle = 10f;
 
 	private bool triggeredDialogue = false;
 	private float startTime = 0.0f;
@@ -24,17 +27,18 @@ public class DialogueTrigger : MonoBehaviour {
 	void OnTriggerStay (Collider other) 
 	{
 		if (waitForActivating) {
-			if (other.tag == "Player") {
-				print ("Comecou a esperar");
-				if (startTime<=0.0f) {
-					startTime = Time.time;
-				}
-				if (Time.time - startTime >= waitTimeActivating) {
-					if (!triggeredDialogue) 
-					{
-						print ("Vai exibir o dialogo porque passou o tempo de espera");
-						GameObject.Find("Dialogue").GetComponent<DialogueHandler>().SetDialogueSituation(dialogueSituation);
-						triggeredDialogue = true;
+			float angle = Vector3.Angle((lookingAt.transform.position - other.gameObject.transform.position), player.gameObject.transform.forward);
+			if (angle < this.angle) {
+				if (other.tag == "Player") {
+					if (startTime <= 0.0f) {
+						startTime = Time.time;
+					}
+					if (Time.time - startTime >= waitTimeActivating) {
+						if (!triggeredDialogue) {
+							print ("Vai exibir o dialogo porque passou o tempo de espera");
+							GameObject.Find ("Dialogue").GetComponent<DialogueHandler> ().SetDialogueSituation (dialogueSituation);
+							triggeredDialogue = true;
+						}
 					}
 				}
 			}

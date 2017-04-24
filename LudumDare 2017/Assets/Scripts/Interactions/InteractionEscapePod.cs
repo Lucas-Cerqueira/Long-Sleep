@@ -10,6 +10,7 @@ public class InteractionEscapePod : InteractionGeneric {
 	public float flyingTime = 3f;
 	public float leavingSpeed = 10f;
 	public float finalSpeed = 100f;
+	public float waitTime =3f;
 	public string gameOverSceneName = "gameOver";
 
 	private bool playerInside = false;
@@ -92,7 +93,8 @@ public class InteractionEscapePod : InteractionGeneric {
 		GameObject.Find ("EscapeDoor").GetComponent<OpenEscapeDoor> ().Open ();
 		GameObject.Find ("Escape_Pod1_Window").GetComponent<ClosePodWindow> ().Close ();
 
-		GameObject.Find("Dialogue").GetComponent<DialogueHandler>().SetDialogueSituation("insideEscapePod");
+//		GameObject.Find("Dialogue").GetComponent<DialogueHandler>().SetDialogueSituation("insideEscapePod");
+		GameObject.Find("Dialogue").GetComponent<DialogueHandler>().waitSetDialogueSituation(waitTime,"insideEscapePod");
 
 		elapsedTime = 0;
 	}

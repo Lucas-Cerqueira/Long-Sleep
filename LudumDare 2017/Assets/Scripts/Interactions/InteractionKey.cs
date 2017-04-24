@@ -23,7 +23,7 @@ public class InteractionKey : InteractionGeneric {
 				GameObject.Find("Dialogue").GetComponent<DialogueHandler>().SetDialogueSituation("afterPickingCard");
 			
 			keyPointer.GetComponent<InteractionGeneric> ().Unlock ();
-			print ("Unlocked");
+//			print ("Unlocked");
 			gameObject.SetActive (false);
 
 		}

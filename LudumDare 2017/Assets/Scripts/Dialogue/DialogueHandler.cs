@@ -52,4 +52,18 @@ public class DialogueHandler : DialogueText {
 		finished = false;
 		showingDialogue = false;
 	}
+
+	public void waitSetDialogueSituation (float duration, string s)
+	{
+		StartCoroutine(WaitForDialog(duration,s));
+	}
+
+	IEnumerator WaitForDialog(float duration, string s)
+	{
+		yield return new WaitForSeconds(duration);   //Wait
+		situation = s;
+		currentIndex = 0;
+		finished = false;
+		showingDialogue = false;
+	} 
 }

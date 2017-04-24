@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class InteractionScript : InteractionGeneric {
-
+	public bool isLooking = true;
 
 	// Use this for initialization
 	void Start () 
@@ -20,7 +20,7 @@ public class InteractionScript : InteractionGeneric {
 
 		if (Physics.Raycast (transform.position, fwd, out hit, 3, Physics.AllLayers, QueryTriggerInteraction.Collide))
 		{
-			if (hit.transform.tag == "Object") 
+			if (hit.transform.tag == "Object" && isLooking) 
 			{
 				hit.transform.GetComponent<InteractionGeneric> ().ShowInteractionMessage();
 				if (Input.GetKeyDown (KeyCode.E)) {

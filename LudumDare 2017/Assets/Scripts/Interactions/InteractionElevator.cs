@@ -81,9 +81,7 @@ public class InteractionElevator : InteractionGeneric {
 
 	public override void Interaction ()
 	{
-		print ("TCHAU" + isLocked + isDown);
 		if (!isLocked && isDown) {
-			print ("OI");
 			elevator.transform.GetChild (0).GetComponent<InteractionDownDoor> ().CloseDoors ();
 			elevator.transform.GetChild (1).GetComponent<InteractionDownDoor> ().CloseDoors ();
 			if (Vector3.Distance (elevator.transform.GetChild (0).GetComponent<InteractionDownDoor> ().transform.position,

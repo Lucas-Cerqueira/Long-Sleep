@@ -20,7 +20,7 @@ public class InteractionFuseKey : InteractionGeneric {
 	{
 		if (!isLocked) {
 			keyPointer.GetComponent<InteractionGeneric> ().Unlock ();
-			print ("Unlocked_Showing");
+//			print ("Unlocked_Showing");
 			transform.GetChild (0).GetComponent<MeshRenderer> ().enabled = true;
 			gameObject.tag = "Untagged";
 			GameObject.Find("Dialogue").GetComponent<DialogueHandler>().SetDialogueSituation("afterFixingFuse");
