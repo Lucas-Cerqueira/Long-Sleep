@@ -33,7 +33,7 @@ public class InteractionEscapePod : InteractionGeneric {
 			}
 		}
 
-		if (isLeaving) 
+		if (playerInside && isLeaving) 
 		{
 			if (elapsedTime < leavingTime) 
 			{

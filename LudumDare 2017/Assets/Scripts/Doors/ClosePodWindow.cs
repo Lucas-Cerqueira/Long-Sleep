@@ -23,18 +23,20 @@ public class ClosePodWindow : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-		if (close)
+		if (close) 
+		{
 			transform.rotation = Quaternion.Lerp (initialRotation, targetRotation, t);
 
-		if (t < 1)
-			t += Time.deltaTime / time;
-		else
-		{
-			if (!setChild) 
+			if (t < 1)
+				t += Time.deltaTime / time;
+			else 
 			{
-				setChild = true;
-				transform.SetParent (GameObject.Find ("Escape_Pod1").transform);
-				GameObject.Find ("Escape_Pod1").GetComponent<InteractionEscapePod> ().SetPlayerInside (true);
+				if (!setChild)
+				{
+					setChild = true;
+					transform.SetParent (GameObject.Find ("Escape_Pod1").transform);
+					GameObject.Find ("Escape_Pod1").GetComponent<InteractionEscapePod> ().SetPlayerInside (true);
+				}
 			}
 		}
 	}

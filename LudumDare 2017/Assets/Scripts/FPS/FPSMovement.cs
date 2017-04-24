@@ -27,6 +27,12 @@ public class FPSMovement : MonoBehaviour
     private int layerMask = 1 << 8;
 	private AudioSource audioSource;
 
+
+	void OnCollisionStay (Collision collisionInfo)
+	{
+		
+	}
+
     // Use this for initialization
     void Awake()
     {
@@ -48,7 +54,8 @@ public class FPSMovement : MonoBehaviour
 			speed = walkSpeed;
 
 		RaycastHit hitinfo;
-		bool grounded = Physics.Raycast (transform.position, Vector3.down, collider.height/2f + 0.2f);
+		//bool grounded = Physics.Raycast (transform.position, Vector3.down, collider.height/2f + 0.2f);
+		bool grounded = Physics.SphereCast (transform.position - Vector3.up*collider.height/4f, collider.radius/2f, Vector3.down, out hitinfo, collider.height/2f, Physics.AllLayers);
 
 		if ((grounded)|| (!grounded && airControl))
 		{
