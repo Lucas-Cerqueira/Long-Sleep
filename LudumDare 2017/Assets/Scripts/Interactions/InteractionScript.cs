@@ -12,7 +12,7 @@ public class InteractionScript : InteractionGeneric {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
 		Vector3 fwd = transform.TransformDirection(Vector3.forward);
 		RaycastHit hit;
 
