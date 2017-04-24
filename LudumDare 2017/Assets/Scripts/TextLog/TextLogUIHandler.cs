@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class TextLogUIHandler : MonoBehaviour {
 
@@ -29,7 +30,8 @@ public class TextLogUIHandler : MonoBehaviour {
 		activeLog = situation;
 
 		GameObject.Find ("Timer").GetComponent<LimitTime> ().StopCountdown ();
-		GameObject.Find ("FPSPlayer").GetComponent<FPSMovement> ().enabled = false;
+		//GameObject.Find ("FPSPlayer").GetComponent<FPSMovement> ().enabled = false;
+		GameObject.Find ("FPSPlayer").GetComponent<RigidbodyFirstPersonController> ().enabled = false;
 	}
 
 	public void Disable (string gameObjectName)
@@ -41,7 +43,9 @@ public class TextLogUIHandler : MonoBehaviour {
 		GameObject.Find("Dialogue").GetComponent<DialogueHandler>().SetDialogueSituation(activeLog);
 		GameObject.Find ("Timer").GetComponent<LimitTime> ().StartCountdown ();
 
-		GameObject.Find ("FPSPlayer").GetComponent<FPSMovement> ().enabled = true;
+		//GameObject.Find ("FPSPlayer").GetComponent<FPSMovement> ().enabled = true;
+		GameObject.Find ("FPSPlayer").GetComponent<RigidbodyFirstPersonController> ().enabled = true;
+
 	}
 
 	void Update ()
