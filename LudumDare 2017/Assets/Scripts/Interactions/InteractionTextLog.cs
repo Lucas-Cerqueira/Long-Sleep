@@ -21,6 +21,6 @@ public class InteractionTextLog : InteractionGeneric {
 
 	public override void Interaction ()
 	{
-		textLogUIHandler.Enable (logType, TextLogList.dialoguesList[logType]);
+		textLogUIHandler.Enable (logType, TextLogList.dialoguesList[logType], this.name);
 	}
 }

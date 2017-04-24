@@ -1,16 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class InteractionEscapePod : InteractionGeneric {
 
 	public float ignitionTime = 2f;
 	public float leavingTime = 2f;
+	public float flyingTime = 3f;
 	public float leavingSpeed = 10f;
 	public float finalSpeed = 100f;
+	public string gameOverSceneName = "gameOver";
 
 	private bool playerInside = false;
 	private bool isLeaving = false;
+	private bool isFlying = false;
 	private float elapsedTime;
 
 	// Use this for initialization
@@ -33,17 +37,42 @@ public class InteractionEscapePod : InteractionGeneric {
 			}
 		}
 
-		if (playerInside && isLeaving) 
+		if (playerInside && isLeaving && !isFlying) 
 		{
 			if (elapsedTime < leavingTime) 
 			{
 				elapsedTime += Time.deltaTime;
 				transform.Translate (transform.right * leavingSpeed * Time.deltaTime);
 			}
-			else
+			else 
+			{
 				transform.Translate (transform.right * finalSpeed * Time.deltaTime);
+				isFlying = true;
+				elapsedTime = 0;
+			}
+		}
+
+		if (playerInside && isFlying) 
+		{
+			if (elapsedTime < flyingTime) 
+			{
+				elapsedTime += Time.deltaTime;
+				transform.Translate (transform.right * finalSpeed * Time.deltaTime);
+			}
+			else
+			{
+				GameObject.Find ("FadeInOutPanel").GetComponent<FadeInOut> ().FadeIn ();
+				StartCoroutine ("GameOver", GameObject.Find ("FadeInOutPanel").GetComponent<FadeInOut> ().fadeOutTime);
+				//SceneManager.LoadScene (gameOverSceneName);
+			}
 		}
 			
+	}
+
+	IEnumerator GameOver(float time)
+	{
+		yield return new WaitForSeconds (time);
+		SceneManager.LoadScene (gameOverSceneName);
 	}
 
 	public override void Interaction ()
