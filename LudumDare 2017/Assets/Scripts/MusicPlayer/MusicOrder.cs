@@ -16,7 +16,7 @@ public class MusicOrder : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		src = GetComponent<AudioSource> ();
-		coroutine = FadeOut(src,1000.0f);
+		coroutine = FadeOut(src,2000.0f);
 		coroutine2 = FadeIn (src, 600.0f, src.volume);
 	}
 	
@@ -33,7 +33,6 @@ public class MusicOrder : MonoBehaviour {
 			StartCoroutine (coroutine);
 		}
 		if (isChanging && src.time + 0.5f >= src.clip.length) {
-			print ("AQUI");
 			src.Stop ();
 			src.clip = audios [1];
 			src.Play ();
@@ -45,7 +44,7 @@ public class MusicOrder : MonoBehaviour {
 	public IEnumerator FadeOut (AudioSource audioSource, float FadeTime) {
 		float startVolume = audioSource.volume;
 
-		while (audioSource.volume > 0) {
+		while (audioSource.volume > 0 && audioSource.time - audioSource.clip.length > 1.0f) {
 			//print ("Volume :" + audioSource.volume + " " + audioSource.clip.ToString());
 			audioSource.volume -= startVolume * Time.deltaTime / FadeTime;
 			yield return null;
