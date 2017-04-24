@@ -27,7 +27,7 @@ public class LimitTime : MonoBehaviour {
 		{
 			float remainingTime = targetTime - Time.time;
 			if (remainingTime >= 0)
-				countdownText.SetText (string.Format ("{0:#00}:{1:00}", Mathf.Floor (remainingTime / 60), Mathf.Floor (remainingTime % 60)));
+				countdownText.SetText ("Emergency!\nEvacuate immediately\n" + string.Format ("{0:#00}:{1:00}", Mathf.Floor (remainingTime / 60), Mathf.Floor (remainingTime % 60)));
 
 			if (Mathf.Floor (remainingTime / 60) == 0 && Mathf.Floor (remainingTime % 60) <= 0) 
 			{
