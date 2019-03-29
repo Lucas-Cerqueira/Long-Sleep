@@ -15,8 +15,8 @@ Access the itch.io page by clicking [here](https://gsantos.itch.io/longsleep).
 ## Credits
 - [Diogo Magalhães](https://github.com/noc1243) (programming)
 - [Guilherme Santos](https://github.com/guizx) (3D Art and story)
-- [Lucas Cerqueira](https://github.com/Lucas-Cerqueira) (programming)
 - Hugo Braga (music)
 - Lennon Barbosa (music)
+- [Lucas Cerqueira](https://github.com/Lucas-Cerqueira) (programming)
 - Matheus Ribeiro (story).
 
