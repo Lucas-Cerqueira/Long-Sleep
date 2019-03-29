@@ -13,10 +13,10 @@ Oh, and there will be a timer in the game but don't worry, we pause it when you 
 Access the itch.io page by clicking [here](https://gsantos.itch.io/longsleep).
 
 # Credits
-- [Diogo Magalhães](https://github.com/noc1243) (programmer)
-- [Guilherme Santos](https://github.com/guizx) (3D Artist)
-- [Lucas Cerqueira](https://github.com/Lucas-Cerqueira) (programmer)
-- Hugo Braga (musician)
-- Lennon Barbosa (musician)
-And also a very special thanks to Matheus Ribeiro who helped us a lot with the story.
+- [Diogo Magalhães](https://github.com/noc1243) (programming)
+- [Guilherme Santos](https://github.com/guizx) (3D Art and story)
+- [Lucas Cerqueira](https://github.com/Lucas-Cerqueira) (programming)
+- Hugo Braga (music)
+- Lennon Barbosa (music)
+- Matheus Ribeiro (story).
 
